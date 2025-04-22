@@ -1,0 +1,876 @@
+@charset "utf-8";
+
+
+
+/* 폰트, 변수선언(컬러) */
+@font-face {
+    font-family: "danjoBold";
+    src: url("../font/Danjo-bold-Regular.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "subMarineBold";
+    src: url("../font/subMarineBold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "subMarineRegular";
+    src: url("../font/subMarineRegular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "paperlogy";
+    src: url("../font/Paperlogy-1Thin.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "paperlogy";
+    src: url("../font/Paperlogy-2ExtraLight.woff") format("woff");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "paperlogy";
+    src: url("../font/Paperlogy-3Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "paperlogy";
+    src: url("../font/Paperlogy-4Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "paperlogy";
+    src: url("../font/Paperlogy-5Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "paperlogy";
+    src: url("../font/Paperlogy-6SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "paperlogy";
+    src: url("../font/Paperlogy-7Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "paperlogy";
+    src: url("../font/Paperlogy-8ExtraBold.woff") format("woff");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "paperlogy";
+    src: url("../font/Paperlogy-9Black.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+}
+
+:root {
+    --font-danjoBold: "danjoBold";
+    --font-subMarineBold: "subMarineBold";
+    --font-subMarineRegular: "subMarineRegular";
+    --font-paperlogy: "paperlogy";
+    --design-color1: #D8712D;
+    --design-color2: #F3EED8;
+    --design-color3: #0C211D;
+    --design-color4: #FF9F1C;
+    --design-color5: #177654;
+    --design-color6: #FCD240;
+    --design-gradient1: linear-gradient(180deg, #D8712D 0%, #FF9F1C 50%, #F3EED8 100%);
+    --design-gradient2: linear-gradient(180deg, #202021 0%, #F3EED8 100%);
+    --design-gradient3: linear-gradient(180deg, #202021 0%, #FF9F1C 50%, #F3EED8 100%);
+    --design-gradient4: linear-gradient(180deg, #177654 0%, #F3EED8 50.38%, #FF9F1C 100%);
+    --design-gradient5: linear-gradient(180deg, #177654 0%, #F3EED8 100%);
+    --design-gradient6: linear-gradient(180deg, #FCD240 0%, #F3EED8 100%);
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-paperlogy);
+    font-weight: 400;
+}
+
+.fix_top {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 99;
+}
+
+.fix_top a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    background-color: var(--design-color5);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+
+}
+
+
+
+/* WRAP CONTAINER BOX */
+.wrap {
+    width: 100%;
+    /* width: 1920px; */
+    position: relative;
+    overflow: hidden;
+    /* background-color: #ccc; */
+}
+
+nav.fix_nav {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 100%;
+    top: 0;
+    z-index: 100;
+    background: #333;
+    color: #fff;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav.fix_nav ul {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background: #ccc; */
+}
+
+nav.fix_nav ul li {
+    flex: 1;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+}
+
+nav.fix_nav.on {
+    left: 0;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    /* background: #ccc; */
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+
+
+
+/* NAV */
+header nav {
+    width: 600px;
+    height: 100%;
+    /* background-color: orange; */
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--design-color2);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0 14px;
+}
+
+
+
+/* GNB */
+nav ul.gnb {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: yellow; */
+}
+
+nav ul.gnb li {
+    cursor: pointer;
+}
+
+nav ul.gnb li:last-child {
+    width: 212px;
+    height: 56px;
+    border-radius: 30px;
+    border: 3px solid transparent;
+    background-image: url(../img/link_img.png), var(--design-gradient4);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+nav ul.gnb li a {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul.gnb li a img {
+    /*     width: 40px;
+    height: 40px;
+    background-color: magenta; */
+}
+
+
+
+/* MAIN VISUAL */
+.mainVisual {
+    width: 100%;
+    height: 100vh;
+    background: url(../img/Background1.png) no-repeat center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainVisual img.BW {
+    width: 50%;
+}
+
+.mainVisual p {
+    color: #F3EED8;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 40px;
+    font-weight: 400;
+    text-align: center;
+    font-family: var(--font-subMarineBold);
+}
+
+
+
+/* DESIGN PROJECTS */
+.projects {
+    width: 100%;
+    height: 1200px;
+    background: url("../img/Background1-2.png") no-repeat center/cover;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    gap: 60px;
+    /* absolute 주면 안됨!!!! */
+}
+
+.projects .tit {
+    width: 534px;
+    /*     background: #ccc; */
+    margin-top: 254px;
+    margin-left: 74px;
+}
+
+.projects .tit .bottom {
+    display: flex;
+    align-items: center;
+}
+
+.projects .tit .bottom span.scrollTxt {
+    font-family: var(--font-subMarineBold);
+    color: var(--design-color2);
+    font-size: 15px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+
+/* PROJECTS - IMAGE */
+.projects img.pj {
+    width: 370px;
+
+}
+
+.projects h2 {
+    font-family: var(--font-subMarineBold);
+    color: var(--design-color2);
+    line-height: 45px;
+    font-size: 36px;
+
+}
+
+
+
+/* DESIGN PROJECTS - LEFT & RIGHT BUTTON */
+.projects button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    margin-right: -10px;
+}
+
+.projects .tit .bottom button>img {}
+
+.projects .tit .bottom button img.lArrow {
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.projects .tit .bottom button img.rArrow {
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+
+
+/* DESIGN PROJECTS - 맨위로 가는 BUTTON */
+/* 임시로 여기에 둠, 위치 옮길 예정 */
+
+
+.projects .bottom .bottom_right button img.arrowUp {}
+
+
+
+/* DESIGN PROJECTS - PROJECTS NUMBER */
+.projects .bottom .number {
+    font-family: var(--font-paperlogy);
+    font-weight: 600;
+    color: var(--design-color3);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 30px;
+    margin-left: 18px;
+}
+
+.projects ul {
+    display: flex;
+    gap: 150px;
+    margin: 250px;
+}
+
+.projects ul li {
+    width: 390px;
+    height: 600px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.projects ul li.project1 {
+    background-image: url("../img/Splash_iRun.png");
+}
+
+.projects ul li.project2 {
+    background-color: var(--design-color6);
+}
+
+.projects ul li.project3 {
+    background-color: var(--design-color6);
+}
+
+.projects ul li.project4 {
+    background-color: var(--design-color6);
+}
+
+
+.projects ul li a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+.projects ul li .container {
+    background-color: var(--design-color5);
+    width: 100%;
+    height: 120px;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.projects ul li .container .left p {
+    margin-bottom: 10px;
+}
+
+.projects ul li a img.arrowUpRight {
+    width: 70px;
+    height: 70px;
+    background-color: var(--design-color4);
+    border-radius: 40px;
+    /* flex-direction: row-reverse; */
+}
+
+.projects ul>li ul {}
+
+.projects ul>li ul li {}
+
+.projects ul>li ul li a {}
+
+.projects ul li a p {
+    color: var(--design-color4);
+    font-size: 20px;
+}
+
+.projects ul li a div {
+    font-family: var(--font-paperlogy);
+    font-weight: 400;
+    color: var(--design-color2);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+
+
+/* TOOLS FOR DESIGN */
+.tools {
+    width: 100%;
+    height: 1700px;
+    background: url(../img/Background1-3.png) no-repeat center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    margin: 0 auto;
+}
+
+.toolsHeaderBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 88%;
+
+}
+
+/* TITLE IMAGE - TOOLS FOR DESIGN   */
+.tools img.toolsForDesign {
+    width: 600px;
+    height: 400px;
+}
+
+
+
+/* SUB TEXT - TOOLS FOR DESIGN  */
+.tools p.toolSubTxt {
+    font-family: var(--font-paperlogy);
+    font-weight: 300;
+    font-size: 30px;
+    color: var(--design-color3);
+    line-height: 50px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-align: right;
+}
+
+.tools p.toolSubTxt span.highlight {
+    background: var(--design-gradient6);
+    font-weight: 600;
+    color: var(--design-color5);
+}
+
+.tools ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 150px 250px;
+    padding: 0;
+    margin-top: 44px;
+}
+
+
+
+/* TOOL CARDS 1 ~ 6 */
+.tools ul li {
+    /* flex: 1 1 calc(33.333% - 110px); */
+    width: 312px;
+    /*  max-width: 312px; */
+    height: 380px;
+    /* background: var(--design-gradient4); */
+    border-radius: 20px;
+    font-family: var(--font-paperlogy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+.tools ul li.tool1 {
+    background-image:
+        var(--design-gradient4),
+        url('../img/HTML2.png');
+    background-size: cover, cover;
+    background-position: center, center;
+
+}
+
+/* .tools ul li.tool1 img {
+    width: 267px;
+    height: 125px;
+    margin: 87px 22px 168px 23px;
+} */
+
+
+
+.tools ul li.tool2 {
+    background-image:
+        var(--design-gradient4),
+        url('../img/HTML2.png');
+    background-size: cover, cover;
+    background-position: center, center;
+
+}
+
+/* .tools ul li.tool2 img {
+    width: 267px;
+    height: 125px;
+    margin: 80px 22px 175px 23px;
+} */
+
+
+.tools ul li.tool3 {
+    background-image:
+        var(--design-gradient4),
+        url('../img/HTML2.png');
+    background-size: cover, cover;
+    background-position: center, center;
+
+}
+
+/* .tools ul li.tool3 img {
+    width: 282px;
+    height: 175px;
+    margin: 40px 15px 165px 15px;
+} */
+
+
+.tools ul li.tool4 {
+    background-image:
+        var(--design-gradient4),
+        url('../img/HTML2.png');
+    background-size: cover, cover;
+    background-position: center, center;
+
+}
+
+
+/* .tools ul li.tool4 img {
+    width: 267px;
+    height: 115px;
+    margin: 94px 22px 171px 23px;
+} */
+
+
+.tools ul li.tool5 {
+    background-image:
+        var(--design-gradient4),
+        url('../img/HTML2.png');
+    background-size: cover, cover;
+    background-position: center, center;
+}
+
+/* .tools ul li.tool5 img {
+    width: 267px;
+    height: 90px;
+    object-fit: contain;
+    margin: 98px 22px 192px 23px;
+} */
+
+
+.tools ul li.tool6 {
+    background-image:
+        var(--design-gradient4),
+        url('../img/HTML2.png');
+    background-size: cover, cover;
+    background-position: center, center;
+}
+
+/* .tools ul li.tool6 img {
+    width: 267px;
+    height: 100px;
+    object-fit: contain;
+    margin: 76px 22px 204px 23px;
+} */
+
+
+.tools ul li img {
+    width: 267px;
+    height: 125px;
+    margin: 40px 22px 20px 23px;
+}
+
+.tools ul li .toolTxt {
+    text-align: center;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.tools ul li .toolTxt h3 {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--design-color3);
+}
+
+.tools ul li .toolTxt p {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--design-color3);
+}
+
+
+
+/* ABOUT ME : SOHWI PARK */
+.aboutMe {
+    width: 100%;
+    height: 1200px;
+    background: url("../img/Background1-4.png");
+    display: flex;
+}
+
+.aboutMeBox {
+    display: flex;
+}
+
+.aboutMeTxtBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 50px;
+}
+
+
+/* IMAGES - ABOUT ME */
+
+.aboutMe img.tiger {
+    width: 25%;
+    height: 40%;
+    filter: drop-shadow(0px 4px 4px 0px rgba(0, 0, 0, 0.25));
+}
+
+.aboutMe img.productDesigner {
+    width: 10%;
+}
+
+.aboutMe img.sohwiPark {
+    width: 20%;
+}
+
+
+
+/* TEXT - ABOUT ME */
+.aboutMe p {
+    font-family: var(--font-paperlogy);
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 31px;
+    color: var(--design-color3);
+}
+
+.aboutMe p span.tigerHeart {
+    font-weight: 700;
+    color: var(--design-color2);
+}
+
+.aboutMe p span.warmLight {
+    font-weight: 700;
+    color: var(--design-color6);
+}
+
+.aboutMe p span.designRoad {
+    font-weight: 700;
+    color: var(--design-color5);
+}
+
+
+/* BUTTON - ABOUT ME */
+.aboutMe button {
+    font-family: var(--font-danjoBold);
+    font-size: 40px;
+    color: var(--design-color5);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    width: 400px;
+    height: 100px;
+    border-radius: 60px;
+    padding: 10px 0px;
+    background: var(--design-gradient4);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.txtAndButton{
+    padding-bottom: 50px;
+}
+
+/* CONTACT - SENDING EMAIL PAGE */
+.outro {
+    width: 100%;
+    height: 1400px;
+    background: url("../img/Outro.png");
+}
+
+.outro img.sohwiAndTiger {
+    width: 45%;
+}
+
+.outro button {
+    color: var(--design-color5);
+    font-size: 40px;
+    font-family: var(--font-subMarineBold);
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 400px;
+    height: 100px;
+    border-radius: 60px;
+    border: none;
+    background: var(--design-gradient4);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.outro button img {
+    width: 40px;
+    height: 40px;
+}
+
+
+/* BUSINESS CONTACT - QR CODE & SCAN */
+.inqury {
+    width: 100%;
+    height: 1400px;
+    background: var(--design-gradient4);
+    display: flex;
+    flex-direction: column;
+}
+
+.inqury div {}
+
+.inqury p span {
+    font-family: var(--font-subMarineBold);
+    font-size: 50px;
+    font-weight: 400;
+}
+
+/* LINKEDIN */
+.inqury div.linkedIn {
+    margin-left: 150px;
+}
+
+.inqury img.linkedIn_QR {
+    width: 400px;
+    height: 425px;
+}
+
+.inqury p.linkedInContent {}
+
+.inqury p.linkedInContent span.linkedIn {
+    color: var(--design-color4);
+}
+
+
+
+/* KAKAO TALK */
+.inqury div.kakaoTalk {
+    justify-items: flex-end;
+    margin: 0 202px 56px 0;
+}
+
+.inqury img.KakaoTalk_QR {
+    width: 400px;
+    height: 425px;
+}
+
+.inqury p.kakaoTalkContent {}
+
+.inqury p.kakaoTalkContent span.kakaoTalk {
+    color: var(--design-color5);
+}
+
+
+
+/* BUSINESS CONTACT IMAGE */
+.inqury img.businessContact {
+    width: 580px;
+    height: 312px;
+    margin: 50px 0 0 95px;
+}
+
+
+/* TEXT AND HYPERLINK - BUSINESS CONTACT */
+.inqury p {
+    font-family: var(--font-paperlogy);
+    font-size: 35px;
+    font-weight: 500;
+    gap: 20px;
+}
+
+
+
+/* FOOTER */
+footer {
+    width: 100%;
+    height: 243px;
+    background-color: var(--design-color3);
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: flex-end;
+    padding: 48px 50px 0 0;
+}
+
+
+/* ICONS - FOOTER */
+footer .icons {
+    display: flex;
+    gap: 10px;
+}
+
+footer .icons img {
+    cursor: pointer;
+}
+
+
+/* COPYRIGHT - FOOTER */
+footer p {
+    font-family: var(--font-paperlogy);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--design-color2);
+}
